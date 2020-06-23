@@ -1,0 +1,58 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 会员查看 {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+<div class="my-widther-main-container">
+    <h4 class='page-title'>会员查询</h4>
+    <hr>
+    <form action="" method='POST'>
+        <div class="form-row">
+            <!-- <label for="col-md-3">手机号码</label> -->
+
+            <input type="text" class="" name="cellphone" id="cellphone" placeholder="会员手机号">
+
+
+            <button type="submit" class="btn btn-primary">查询</button>
+        </div>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">姓名</th>
+                    <th scope="col">手机</th>
+                    <th scope="col">微信</th>
+                    <th scope="col">近视(左)</th>
+                    <th scope="col">近视(右)</th>
+                    <th scope="col">散光(左)</th>
+                    <th scope="col">散光(右)</th>
+                    <th scope="col">积分</th>
+                    <th scope="col">购买次数</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr>
+                    <th scope="row">{{person.name}}</th>
+                    <td>{{person.cellphone}}</td>
+                    <td>{{person.wechat}}</td>
+                    <td>{{person.left_myopia}}</td>
+                    <td>{{person.right_myopia}}</td>
+                    <td>{{person.left_astig}}</td>
+                    <td>{{person.right_astig}}</td>
+                    <td>{{person.score}}</td>
+                    <td>{{person.purchase}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </form>
+
+</div>
+{% endblock %}

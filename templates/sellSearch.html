@@ -1,0 +1,107 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 销售查询 {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/sellSearch.css')}}">
+{% endblock %}
+
+{% block main %}
+<div class="my-main-container">
+
+    <h4 class='page-title' id="begin">销售查询</h4>
+    <hr>
+    <form action="" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="startDate">开始日期:</label>
+                <input type="date" name="startDate" id="startDate" value="{{fromDate}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="endDate">截止日期:</label>
+                <input type="date" name="endDate" id="endDate" value="{{toDate}}">
+            </div>
+
+        </div>
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="productType">类型</label>
+                <select id="productType" class="form-control" name="productType">
+                    <!-- <option selected>选择...</option> -->
+                    <option value='隐形眼镜'>隐形眼镜</option>
+                    <option value='眼药水'>眼药水</option>
+                    <option value='护理液'>护理液</option>
+                    <option value='洗眼液'>洗眼液</option>
+                </select>
+            </div>
+
+
+            <div class="form-group col-md-3">
+                <label for="">''</label>
+                <button type="submit" class="btn btn-primary form-control">查询</button>
+            </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="total">总销售额:</label>
+                <input type="text" class="form-control" name="total" id="total" value="{{totalPrice}}" disabled>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="glassTotal">隐形眼镜:</label>
+                <input type="text" class="form-control" name="glassTotal" id="glassTotalhone" value="{{glass_totalPrice}}"
+                    disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="eyedropTotal">眼药水:</label>
+                <input type="text" class="form-control" name="eyedropTotal" id="eyedropTotal" value="{{eyedrop_totalPrice}}"
+                    disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="nursingTotal">护理液:</label>
+                <input type="text" class="form-control" name="nursingTotal" id="nursingTotal" value="{{nursing_totalPrice}}"
+                    disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="washingTotal">洗眼液:</label>
+                <input type="text" class="form-control" name="washingTotal" id="washingTotal" value="{{washing_totalPrice}}"
+                    disabled>
+            </div>
+
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">SKU</th>
+                    <th scope="col">销量</th>
+                    <th scope="col">销售额</th>
+                    <th scope="col">库存</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <th scope="row">{{item.sku}}</th>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.total}}</td>
+                    <td>{{item.stock}}</td>
+    
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+<a href="#begin" style="margin-right: 0%">回到顶部</a>
+{% endblock %}

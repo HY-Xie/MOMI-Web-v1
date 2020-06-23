@@ -1,0 +1,25 @@
+{% extends 'selfBase.html' %}
+{% block title %} 自助查询 {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+<h5 class="self-page-title">信息查询</h5>
+<div class="container-fluid">
+    <!-- <div class="col-xs-6 col-sm-6"> -->
+    <form action="" method='POST'>
+
+        <p><input type="text" class="form-control" id="cellphone_id" placeholder="手机号" name="cellphone" required></p>
+        <button type="submit" class="btn btn-success btn-block" name="search">查询</button>
+
+
+        <div class="smallFont hint hint-container">输入您在我店预留的手机号码即可轻松查询您所需的眼镜度数和积分.</div>
+        
+        
+    </form>
+
+    <!-- </div> -->
+</div>
+{% endblock %}

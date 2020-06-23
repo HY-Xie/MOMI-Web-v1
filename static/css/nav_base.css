@@ -1,0 +1,28 @@
+.logo{
+    height: 30px;
+}
+
+.page-title{
+    text-align: center;
+    padding-top: 3%;
+}
+
+.my-main-container{
+    width: 750px;
+    margin: 0 auto;
+}
+
+.my-widther-main-container{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.my-narrow-main-container{
+    width: 500px;
+    margin: 0 auto;
+}
+
+body{
+    
+}
+

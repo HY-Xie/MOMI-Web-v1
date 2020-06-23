@@ -1,0 +1,15 @@
+.smallFont{
+    font-size: 10px;
+    color: red;
+}
+
+
+body{
+    background-color: wheat;
+}
+
+.self-main-container{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 20%;
+}

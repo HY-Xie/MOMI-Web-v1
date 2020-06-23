@@ -1,0 +1,65 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 业绩查询 {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/outstanding.css')}}">
+{% endblock %}
+
+{% block main %}
+<div class="my-main-container">
+
+    <h4 class='page-title' id="begin">业绩查询</h4>
+    <hr>
+    <form action="" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="startDate">开始日期:</label>
+                <input type="date" name="startDate" id="startDate" value={{fromDate}}>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="endDate">截止日期:</label>
+                <input type="date" name="endDate" id="endDate" value={{toDate}}>
+            </div>
+
+        </div>
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="cellphone">员工手机号</label>
+                <input type="text" class="form-control" name="cellphone" id="cellphone" placeholder='可选'>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-primary form-control">查询</button>
+            </div>
+        </div>
+
+        
+    </form>
+
+    <div class="outstanding-table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">姓名</th>
+                    <th scope="col">销售额</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr>
+                    <th scope="row">{{person.name}}</th>
+                    <td>{{person.total}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+<a href="#begin" style="margin-right: 0%">回到顶部</a>
+{% endblock %}

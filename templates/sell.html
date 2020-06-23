@@ -1,0 +1,171 @@
+{% extends 'nav_base.html' %}
+
+{% block title %}
+销售
+{% endblock %}
+
+{%block head %}
+
+
+<script>
+
+    function ok_info() {
+        alert('销售成功');
+    }
+
+    function fail_info(){
+        alert('销售失败');
+    }
+    function info(msg){
+        if (msg != "")
+            alert(msg)
+    }
+
+    function $(obj) {
+        return document.getElementById(obj);
+    }
+    function show(objid) {
+        $(objid).style.display = 'inline';
+    }
+    function hidden(objid) {
+        $(objid).style.display = 'none';
+    }
+    function doit() {
+        var sel_val = $('productType').value;
+        if (sel_val == '隐形眼镜') {
+            show('glass')
+            hidden('eyedrop');
+            hidden('nursing');
+            hidden('washing');
+            // alert('隐形眼镜');
+        }
+        if (sel_val == "眼药水") {
+            hidden('glass')
+            show('eyedrop');
+            hidden('nursing');
+            hidden('washing');
+            // alert('眼药水');
+        }
+        if (sel_val == "护理液") {
+            hidden('glass')
+            hidden('eyedrop');
+            show('nursing');
+            hidden('washing');
+        }
+        if (sel_val == "洗眼液") {
+            hidden('glass')
+            hidden('eyedrop');
+            hidden('nursing');
+            show('washing');
+        }
+    }
+    window.onload = function () {
+        show('glass')
+        hidden('eyedrop');
+        hidden('nursing');
+        hidden('washing');
+        var sel = document.getElementById("productType");
+        sel.onchange = doit;
+    }
+
+</script>
+{% endblock %}
+
+
+
+{% block main %}
+<div class="my-main-container">
+    <h4 class="page-title">销售页面</h4>
+    <hr>
+    <form action="" , method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="productType">类型</label>
+                <select id="productType" class="form-control" name="productType">
+                    <!-- <option selected>选择...</option> -->
+                    <option value='隐形眼镜'>隐形眼镜</option>
+                    <option value='眼药水'>眼药水</option>
+                    <option value='护理液'>护理液</option>
+                    <option value='洗眼液'>洗眼液</option>
+                </select>
+            </div>
+
+            <div id="glass" class="form-group col-md-4">
+                <label for="glass_skus">隐形眼镜-SKU</label>
+                <select id="glass_skus" class="form-control" name="glass_skus">
+                    <!-- <option selected>选择...</option> -->
+                    {% for glass in glasses %}
+                    <option value='{{glass.sku}}'>{{glass.sku}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div id="eyedrop" class="form-group col-md-4">
+                <label for="eyedrop_skus">眼药水-SKU</label>
+                <select id="eyedrop_skus" class="form-control" name="eyedrop_skus">
+                    <!-- <option selected>选择...</option> -->
+                    {% for eyedrop in eyedrops %}
+                    <option value='{{eyedrop.sku}}'>{{eyedrop.sku}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div id="nursing" class="form-group col-md-4">
+                <label for="nursing_skus">护理液-SKU</label>
+                <select id="nursing_skus" class="form-control" name="nursing_skus">
+                    <!-- <option selected>选择...</option> -->
+                    {% for nursing in nursings %}
+                    <option value='{{nursing.sku}}'>{{nursing.sku}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div id="washing" class="form-group col-md-4">
+                <label for="washing_skus">洗眼液-SKU</label>
+                <select id="washing_skus" class="form-control" name="washing_skus">
+                    <!-- <option selected>选择...</option> -->
+                    {% for washing in washings %}
+                    <option value='{{washing.sku}}'>{{washing.sku}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="cellphone">会员手机</label>
+                <input type="text" class="form-control" name="cellphone" id="cellphone" value="{{cell | default('')}}" required>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="">单价</label>
+                <input type="text" class="form-control" name="price" id="price" required>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="">数量</label>
+                <input type="text" class="form-control" name="amount" id="amount" value=1 required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                
+                <!--<button type="submit" class="btn btn-primary" onclick="info('{{buyInfo}}')">确认</button>-->
+                
+                 <button type="submit" class="btn btn-primary" >确认</button>
+                
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'selfBase.html' %}
+
+{% block title %} 查询结果 {% endblock %}
+
+{% block head %} 
+
+{% endblock %}
+
+
+{% block main %}
+<h4 class="self-page-title">查询结果</h4>
+<div class="container">
+    
+    <p>您好: {{name}} (帅哥/美女), 请核实您的手机尾号: {{tail}}.</p>
+    <p>您在我店预留的信息如下:</p>
+    <ul>
+        <li>近视(左): {{customer.left_myopia}}</li>
+        <li>近视(右): {{customer.right_myopia}}</li>
+        <li>散光(左): {{customer.left_astig}}</li>
+        <li>散光(右): {{customer.right_astig}}</li>
+        <li>积分:     {{customer.score}}</li>
+
+    </ul>
+    <p class = "smallFont">积分规则: 单笔消费每满20元积1分,以此递增,不足20元部分不积分.(例如您一次消费了347元, 共积17分).积分使用规则请留意店内活动.</p>
+    <p class = "smallFont">友情提示: 您的所有信息会在后台进行加密处理,并且不会泄露给任何第三方.</p>
+
+    <form action="" method="POST">
+            <button class="btn btn-danger btn-block" type="submit">返回</button>
+    </form>
+    
+</div>
+{% endblock %}

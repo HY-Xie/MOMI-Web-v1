@@ -1,0 +1,90 @@
+{% extends 'nav_base.html' %}
+
+{%block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/addcustomer.css')}}">
+{% endblock %}
+
+{% block title %}
+添加会员
+{% endblock %}
+
+{% block main %}
+
+
+<div class="addcustomer-container">
+  <h4 class="page-title">添加会员</h4>
+  <hr>
+  <form action="" method='post'>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="cellphone_id">手机号(*)</label>
+        <input type="text" class="form-control" id="cellphone_id" placeholder="手机号" name="cellphone" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="name_id">姓名(*)</label>
+        <input type="text" class="form-control" id="name_id" placeholder="姓名" name="name" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="wechat_id">微信(*)</label>
+        <!-- <input type="checkbox" name="same_as_tel" id="same_as_tel_id"> -->
+        <!-- <label for="same_as_tel_id">同手机)</label> -->
+        <input type="text" class="form-control" id="wechat_id" placeholder="微信" name="wechat" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="email_id">Email</label>
+        <input type="email" class="form-control" id="email_id" placeholder="邮箱" name="email">
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="left_myopia_id">近视-左</label>
+        <input type="text" class="form-control" id="left_myopia_id" placeholder="左眼近视度数" name="left_myopia">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="right_myopia_id">近视-右</label>
+        <input type="text" class="form-control" id="right_myopia_id" placeholder="右眼近视度数" name="right_myopia">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="left_astig_id">散光-左</label>
+        <input type="text" class="form-control" id="left_astig_id" placeholder="左眼散光度数" name="left_astig">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="right_astig_id">散光-右</label>
+        <input type="text" class="form-control" id="right_astig_id" placeholder="右眼散光度数" name="right_astig">
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="score_id">积分</label>
+        <input type="text" class="form-control" id="score_id" name="score" disabled="disabled">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="purchase_id">消费次数</label>
+        <input type="text" class="form-control" id="purchase_id" name="purchase" disabled="disabled">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <button type="submit" class="btn btn-primary" name="add">添加</button>
+        <button type="reset" class="btn btn-primary" name="cancel">重置</button>
+      </div>
+    </div>
+
+
+  </form>
+</div>
+
+{% endblock %}

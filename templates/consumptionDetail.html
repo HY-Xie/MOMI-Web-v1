@@ -1,0 +1,52 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 销售查询 {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+<div class="my-main-container">
+    <h4 class="page-title" id="begin">消费详情</h4>
+    <hr>
+    <form action="" method='POST'>
+        <div class="form-row">
+            <!-- <label for="col-md-3">手机号码</label> -->
+            
+                <input type="text" class = "" name="cellphone" id="cellphone" placeholder="会员手机号" required>
+            
+            
+                <button type="submit" class="btn btn-primary">查询</button>
+        </div>
+        <hr>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">姓名</th>
+                <th scope="col">SKU</th>
+                <th scope="col">单价</th>
+                <th scope="col">单次购买数量</th>
+                <th scope="col">购买日期</th>
+                <th scope="col">销售人员</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <th scope="row">{{item.customerName}}</th>
+                    <td>{{item.sku}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.employeeName}}</td>
+                </tr>
+
+                {% endfor %}
+        </tbody>
+    </table>
+    <a href="#begin">回到顶部</a>
+</div>
+{% endblock %}

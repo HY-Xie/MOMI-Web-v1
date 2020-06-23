@@ -1,0 +1,148 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 隐形眼镜SKU录入 {% endblock %}
+
+{% block head %}
+
+<!-- <script>
+    function $(obj) {
+        return document.getElementById(obj);
+    }
+    function show(objid) {
+        $(objid).style.display = 'inline';
+    }
+    function hidden(objid) {
+        $(objid).style.display = 'none';
+    }
+    function doit() {
+        var sel_val = $('product_type').value;
+        if (sel_val == 0) {
+            show('glass')
+            hidden('eyedrop');
+            hidden('nursing');
+            hidden('washing');
+        }
+        if (sel_val == 1) {
+            hidden('glass')
+            show('eyedrop');
+            hidden('nursing');
+            hidden('washing');
+        }
+        if (sel_val == 2) {
+            hidden('glass')
+            hidden('eyedrop');
+            show('nursing');
+            hidden('washing');
+        }
+        if (sel_val == 3) {
+            hidden('glass')
+            hidden('eyedrop');
+            hidden('nursing');
+            show('washing');
+        }
+    }
+    window.onload = function () {
+        show('glass')
+        hidden('eyedrop');
+        hidden('nursing');
+        hidden('washing');
+        var sel = document.getElementById("product_type");
+        sel.onchange = doit;
+    }
+</script> -->
+{% endblock %}
+
+
+{% block main %}
+<div class="my-main-container">
+    <h4 class = "page-title">隐形眼镜(进货)</h4>
+    <hr>
+    
+    <!-- <form action="">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="product_type">--产品类型--</label>
+                <select name="product_type" id="product_type" class="form-control">
+                    <option value="0" selected>隐形眼镜</option>
+                    <option value="1">眼药水</option>
+                    <option value="2">护理液</option>
+                    <option value="3">洗眼液</option>
+                </select>
+            </div>
+        </div>
+    </form> -->
+    <!-- 隐形眼镜 -->
+    <div id="glass">
+        <form action="", method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="inputType">品牌</label>
+                    <select id="inputType" class="form-control" name="brandSelect">
+                        <!-- <option selected>选择...</option> -->
+                        <option value='米欧米'>米欧米</option>
+                        <option value='美目优瞳'>美目优瞳</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label for="glassModel">型号</label>
+                        <input type="text" class="form-control" id="glassModel" name="glassModel" placeholder="型号(输入示例:P04)">
+                    </div>
+
+                <div class="form-group col-md-3">
+                    <label for="glassColor">颜色</label>
+                    <input type="text" class="form-control" id="glassColor" name="glassColor" placeholder="颜色(输入示例:棕褐)">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="glassDegree">度数</label>
+                    <input type="text" class="form-control" id="glassDegree" name="glassDegree" placeholder="度数">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="glassAmount">数量</label>
+                    <input type="text" class="form-control" id="glassAmount" name="glassAmount" placeholder="数量">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="glassSKU">SKU</label>
+                <input type="text" class="form-control" id="glassSKU" name="glassSKU" placeholder=""  disabled>
+            </div>
+
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">SKU</th>
+                    <th scope="col">品牌</th>
+                    <th scope="col">型号</th>
+                    <th scope="col">颜色</th>
+                    <th scope="col">度数</th>
+                    <th scope="col">数量(库存)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for glass in glasses %}
+                    <tr>
+                        <th scope="row">{{glass.sku}}</th>
+                        <td>{{glass.brand}}</td>
+                        <td>{{glass.model}}</td>
+                        <td>{{glass.color}}</td>
+                        <td>{{glass.degree}}</td>
+                        <td>{{glass.amount}}</td>
+                    </tr>
+
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+
+
+
+    
+</div>
+
+{% endblock %}

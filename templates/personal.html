@@ -1,0 +1,83 @@
+{% extends 'nav_base.html'%}
+
+{% block title %}
+个人信息
+{% endblock%}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block main %}
+<div class="my-main-container">
+    <h4 class="page-title"> 个人信息</h4>
+    <hr>
+    <form action="" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="oldPassword">旧密码(*):</label>
+                <input type="password" class="form-control" name="oldPassword" id="oldPassword">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="customerName">姓名:</label>
+                <input type="text" class="form-control" name="customerName" id="customerName" value="{{model.name}}"
+                    disabled>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="customerPhone">手机:</label>
+                <input type="text" class="form-control" name="customerPhone" id="customerPhone" value="{{model.cellphone}}">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="customerWechat">微信:</label>
+                <input type="text" class="form-control" name="customerWechat" id="customerWechat" value="{{model.wechat}}">
+            </div>
+
+
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="customerEmail">Email:</label>
+                <input type="email" class="form-control" name="customerEmail" id="customerEmail" value="{{model.email}}">
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+
+            <div class="form-group col-md-3">
+                <label for="newPassword">新密码:</label>
+                <input type="password" class="form-control" name="newPassword" id="newPassword">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="renewPassword">再次输入:</label>
+                <input type="password" class="form-control" name="renewPassword" id="renewPassword">
+            </div>
+        </div>
+
+
+
+        <div class="form-row">
+            <div class="from-group">
+                <button type="submit" class="btn btn-primary ">更新</button>
+            </div>
+            <!--{% if msg != None %}-->
+
+            <!--{% else %}-->
+            <!--<button type="submit" class="btn btn-primary col-md-2">更新</button>-->
+            <!--{% endif %}-->
+            
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 洗眼液SKU录入 {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block main %}
+<div class="my-main-container">
+    <h4 class="page-title">洗眼液(进货)</h4>
+    <hr>
+
+
+    <form action="" , method="POST">
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+                <label for="washingBrand">品牌</label>
+                <input type="text" class="form-control" id="washingBrand" name="washingBrand" placeholder="品牌">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="washingModel">型号</label>
+                <input type="text" class="form-control" id="washingModel" name="washingModel" placeholder="型号">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="washingColor">颜色</label>
+                <input type="text" class="form-control" id="washingColor" name="washingColor" placeholder="颜色">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="washingAmount">数量</label>
+                <input type="text" class="form-control" id="washingAmount" name="washingAmount" placeholder="数量">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="washingSKU">SKU</label>
+            <input type="text" class="form-control" id="washingSKU" name="washingSKU" placeholder="" disabled>
+        </div>
+
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">SKU</th>
+                <th scope="col">品牌</th>
+                <th scope="col">型号</th>
+                <th scope="col">颜色</th>
+                <th scope="col">数量(库存)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for washing in washings %}
+            <tr>
+                <th scope="row">{{washing.sku}}</th>
+                <td>{{washing.brand}}</td>
+                <td>{{washing.model}}</td>
+                <td>{{washing.color}}</td>
+                <td>{{washing.amount}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
+{% endblock %}

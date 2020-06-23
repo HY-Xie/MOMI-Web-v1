@@ -1,0 +1,79 @@
+{% extends 'nav_base.html' %}
+
+{% block title %} 护理液SKU录入 {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block main %}
+<div class="my-main-container">
+    <h4 class="page-title">护理液(进货)</h4>
+    <hr>
+
+
+    <form action="" , method="POST">
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+                <label for="nursingBrand">品牌</label>
+                <input type="text" class="form-control" id="nursingBrand" name="nursingBrand" placeholder="品牌">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="nursingModel">型号</label>
+                <input type="text" class="form-control" id="nursingModel" name="nursingModel" placeholder="型号">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="nursingColor">颜色</label>
+                <input type="text" class="form-control" id="nursingColor" name="nursingColor" placeholder="颜色">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="nursingAmount">数量</label>
+                <input type="text" class="form-control" id="nursingAmount" name="nursingAmount" placeholder="数量">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nursingSKU">SKU</label>
+            <input type="text" class="form-control" id="nursingSKU" name="nursingSKU" placeholder="" disabled>
+        </div>
+
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">SKU</th>
+                <th scope="col">品牌</th>
+                <th scope="col">型号</th>
+                <th scope="col">颜色</th>
+                <th scope="col">数量(库存)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nursing in nursings %}
+            <tr>
+                <th scope="row">{{nursing.sku}}</th>
+                <td>{{nursing.brand}}</td>
+                <td>{{nursing.model}}</td>
+                <td>{{nursing.color}}</td>
+                <td>{{nursing.amount}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
+{% endblock %}

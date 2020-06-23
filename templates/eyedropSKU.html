@@ -1,0 +1,71 @@
+{% extends 'nav_base.html'%}
+
+{% block title %} 眼药水SKU录入 {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main%}
+<div class="my-main-container">
+    <h4 class="page-title">眼药水(进货)</h4>
+    <hr>
+
+
+    <form action="" , method="POST">
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="eyedropBrand">品牌</label>
+                <input type="text" class="form-control" id="eyedropBrand" name="eyedropBrand" placeholder="品牌">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="eyedropModel">型号</label>
+                <input type="text" class="form-control" id="eyedropModel" name="eyedropModel" placeholder="型号">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="eyedropAmount">数量</label>
+                <input type="text" class="form-control" id="eyedropAmount" name="eyedropAmount" placeholder="数量">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="eyedropSKU">SKU</label>
+            <input type="text" class="form-control" id="eyedropSKU" name="eyedropSKU" placeholder="" disabled>
+        </div>
+
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">SKU</th>
+                <th scope="col">品牌</th>
+                <th scope="col">型号</th>
+                <th scope="col">数量(库存)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eyedrop in eyedrops %}
+            <tr>
+                <th scope="row">{{eyedrop.sku}}</th>
+                <td>{{eyedrop.brand}}</td>
+                <td>{{eyedrop.model}}</td>
+                <td>{{eyedrop.amount}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
+{% endblock%}
